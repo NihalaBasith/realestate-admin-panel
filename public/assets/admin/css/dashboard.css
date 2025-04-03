@@ -1,0 +1,186 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #333;
+    color: white;
+    position: fixed;
+    padding-top: 20px;
+}
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.sidebar a, .sidebar .dropdown-btn {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 16px;
+}
+.sidebar a i, .sidebar .dropdown-btn i {
+    width: 30px;
+    text-align: center;
+    margin-right: 10px;
+}
+.sidebar a:hover, .sidebar .dropdown-btn:hover {
+    background: #575757;
+}
+.dropdown {
+    display: none;
+    padding-left: 40px;
+}
+.dropdown a {
+    font-size: 14px;
+}
+.sidebar .dropdown-btn:hover + .dropdown,
+.dropdown:hover {
+    display: block;
+}
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+}
+.header {
+    background: #222;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+.card {
+    background: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Add New User Button */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th,
+table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f4f7fa;
+    color: #333;
+    font-size: 16px;
+}
+
+table td {
+    color: #555;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Delete Button Styling */
+form button {
+    padding: 8px 15px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #e53935;
+}
+
+/* Table Row (Alternating) Styling */
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Form Input Styling */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+form .form-group {
+    margin-bottom: 15px;
+}
+
+/* Remove design for the logout button */
+.logout-button {
+    background: none !important;  /* No background */
+    cursor: pointer !important;   /* Make it clickable */
+}
+
+.logout-button:hover {
+    background: none !important;  /* No hover effect */
+    color: inherit !important;    /* Keep text color on hover */
+}
+
+/* Optional: Add styles for other buttons */
+button[type="submit"] {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.custom-danger-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
