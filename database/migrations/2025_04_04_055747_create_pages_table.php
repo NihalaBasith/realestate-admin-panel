@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('metatags', function (Blueprint $table) {
+        Schema::create('pages', function (Blueprint $table) {
             $table->id();
-            $table->string('meta_title', 255); 
-            $table->text('meta_description'); 
-            $table->text('meta_keywords');
-            $table->string('page_name', 255);
+            $table->string('page_name', 255)->unique();
             $table->string('heading', 255)->nullable();
             $table->string('subheading', 255)->nullable();
             $table->text('content')->nullable();
+            $table->string('banner_image')->nullable();
+            $table->string('section2_heading', 255)->nullable();
+            $table->string('section2_subheading', 255)->nullable();
+            $table->text('section2_content')->nullable();
+            $table->string('section2_image')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('metatags');
+        Schema::dropIfExists('pages');
     }
 };

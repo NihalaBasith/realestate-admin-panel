@@ -16,6 +16,7 @@
         <a href="#"><i class="fas fa-project-diagram"></i> Projects</a>
         <div class="dropdown-btn"><i class="fas fa-file"></i> Pages</div>
         <div class="dropdown">
+            <a href="{{ route('admin.pages')}}">All</a>
             <a href="#">Enquiry</a>
             <a href="{{ route('admin.metatag')}}">Metatags</a>
             <a href="#">Seo</a>
@@ -38,6 +39,7 @@
         <!-- Dynamic Content -->
         <div id="card-content">
             @yield('content')
+            @stack('scripts')
         </div>
     </div>
 </body>
