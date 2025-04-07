@@ -165,19 +165,6 @@ form .form-group {
 }
 
 /* Optional: Add styles for other buttons */
-button[type="submit"] {
-    padding: 12px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button[type="submit"]:hover {
-    background-color: #45a049;
-}
 
 .custom-danger-btn {
     background-color: #dc3545;
@@ -186,4 +173,158 @@ button[type="submit"]:hover {
 }
 .form-control-custom {
     height: 300px; /* Adjust height as needed */
+}
+.custom-content-section {
+    padding: 15px; /* Add padding to the whole section */
+}
+
+.custom-content-section textarea {
+    width: 100%;
+    min-height: 300px;
+    font-size: 16px;
+    padding: 12px; /* Uniform padding on all sides */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical; /* Allows users to resize */
+    box-sizing: border-box; /* Ensures padding doesn’t overflow */
+}
+.sidebar-toggle {
+    display: none;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px;
+}
+.icon-btn {
+    background: none;
+    border: none;
+    padding: 6px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-right: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit; /* respect text-info/text-danger etc */
+    text-decoration: none;
+}
+
+.icon-btn i {
+    pointer-events: none; /* so clicking icon still triggers parent */
+}
+
+.icon-btn:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+
+.dropdown {
+    display: none;
+    padding-left: 40px;
+    flex-direction: column;
+}
+
+.show-dropdown {
+    display: flex;
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .sidebar a, .sidebar .dropdown-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .header {
+        text-align: center;
+        padding: 15px;
+    }
+
+    .card {
+        padding: 15px;
+        margin: 15px 0;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    table th,
+    table td {
+        padding: 10px;
+    }
+
+    /* Optional: Stack form fields vertically on mobile */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .form-control-custom {
+        height: 200px;
+    }
+
+    .custom-content-section textarea {
+        min-height: 200px;
+        font-size: 14px;
+    }
+    .sidebar {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 250px;
+        height: 100%;
+        background: #333;
+        color: white;
+        transition: left 0.3s ease;
+        z-index: 1000;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .sidebar-toggle {
+        display: inline-block;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #222;
+        padding: 10px;
+    }
+
+    .layout-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
 }

@@ -6,35 +6,47 @@
     <title>@yield('title', 'Admin Panel')</title>    
     <link rel="stylesheet" href="{{ asset('assets/admin/css/dashboard.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
 </head>
 <body>
-<div class="sidebar">
-        <h2>Admin Panel</h2>
-        <a href="{{ route('dashboard') }}"><i class="fas fa-home"></i> Dashboard</a>
-        <a href="{{ route('admin.users') }}"><i class="fas fa-user"></i> Users</a>
-        <a href="{{ route('admin.blogs') }}"><i class="fas fa-blog"></i> Blogs</a>
-        <a href="#"><i class="fas fa-project-diagram"></i> Projects</a>
-        <div class="dropdown-btn"><i class="fas fa-file"></i> Pages</div>
-        <div class="dropdown">
-            <a href="{{ route('admin.pages')}}">All</a>
-            <a href="#">Enquiry</a>
-            <a href="{{ route('admin.metatag')}}">Metatags</a>
-            <a href="#">Seo</a>
-        </div>
+<!-- Header with toggle button -->
+<div class="header">
+    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+    <h1>Dashboard</h1>
+</div>
 
-        <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-    @csrf
-    <button type="submit" class="logout-button">
-        <i class="fas fa-sign-out-alt" ></i> <span style="margin-left: 10px;">Logout</span>
-</button>
-</form>
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <a href="{{ route('dashboard') }}"><i class="fas fa-home"></i> Dashboard</a>
+    <a href="{{ route('admin.users') }}"><i class="fas fa-user"></i> Users</a>
+    <a href="{{ route('admin.blogs') }}"><i class="fas fa-blog"></i> Blogs</a>
+    <a href="#"><i class="fas fa-project-diagram"></i> Projects</a>
+    
+    <div class="dropdown-btn" onclick="toggleDropdown(this)">
+    <i class="fas fa-file"></i> Pages
+</div>
+<div class="dropdown">
+    <a href="{{ route('admin.pages')}}">All</a>
+    <a href="#">Enquiry</a>
+    <a href="{{ route('admin.metatag')}}">Metatags</a>
+    <a href="#">Seo</a>
+</div>
 
-    </div>
+
+    <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+        @csrf
+        <button type="submit" class="logout-button">
+            <i class="fas fa-sign-out-alt"></i> <span style="margin-left: 10px;">Logout</span>
+        </button>
+    </form>
+</div>
+
 
     <div class="main-content">
-        <div class="header">
-            <h2>@yield('header', 'Dashboard')</h2>
-        </div>
+
 
         <!-- Dynamic Content -->
         <div id="card-content">
@@ -42,5 +54,24 @@
             @stack('scripts')
         </div>
     </div>
+    <script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        if (sidebar) {
+            sidebar.classList.toggle("active");
+        }
+    }
+    function toggleDropdown(button) {
+    const dropdown = button.nextElementSibling;
+    if (dropdown && dropdown.classList.contains("dropdown")) {
+        dropdown.classList.toggle("show-dropdown");
+    }
+}
+</script>
+
 </body>
+
+</body>
+
+
 </html>

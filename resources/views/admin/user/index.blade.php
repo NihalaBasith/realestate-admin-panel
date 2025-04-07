@@ -5,8 +5,9 @@
 
         <!-- Add New User Button -->
         <div class="card" id="card-content">
-            <a href="{{ route('admin.register') }}" class="btn btn-primary">Add New User</a>
+      
             <h3>Users</h3>
+            <a href="{{ route('admin.register') }}" class="btn btn-primary">Add New User</a>
             <!-- Users Table -->
             <table class="table">
                 <thead>
@@ -24,13 +25,14 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>
-                                <!-- Delete Button -->
-                                <form action="#" method="POST" style="display:inline;">
+                               
+                                <form action="#" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure?')">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="icon-btn text-danger" title="Delete">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
                                 </form>
-                                
                             </td>
                         </tr>
                     @endforeach
