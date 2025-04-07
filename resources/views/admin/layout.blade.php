@@ -54,24 +54,13 @@
             @stack('scripts')
         </div>
     </div>
-    <script>
-    function toggleSidebar() {
-        const sidebar = document.getElementById("sidebar");
-        if (sidebar) {
-            sidebar.classList.toggle("active");
-        }
-    }
-    function toggleDropdown(button) {
-    const dropdown = button.nextElementSibling;
-    if (dropdown && dropdown.classList.contains("dropdown")) {
-        dropdown.classList.toggle("show-dropdown");
-    }
-}
-</script>
+
+<script src="{{ asset('assets/admin/js/dashboard.js') }}"></script>
+
 
 </body>
 
-</body>
+
 
 
 </html>

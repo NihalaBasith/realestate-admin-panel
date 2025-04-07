@@ -46,13 +46,24 @@ body {
 .main-content {
     margin-left: 250px;
     padding: 20px;
+    padding-top: 100px; /* match height of fixed header */
 }
+
 .header {
     background: #222;
     color: white;
-    padding: 10px;
-    text-align: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 250px; /* matches the sidebar width */
+    width: calc(100% - 250px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
 .card {
     background: white;
     padding: 20px;
@@ -233,26 +244,42 @@ form .form-group {
     display: flex;
 }
 
+
 /* Mobile-first responsive design */
 @media (max-width: 768px) {
     .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 250px;
+        height: 100%;
+        background: #333;
+        color: white;
+        transition: left 0.3s ease;
+        z-index: 1000;
     }
 
-    .main-content {
-        margin-left: 0;
+    .sidebar.active {
+        left: 0;
     }
 
-    .sidebar a, .sidebar .dropdown-btn {
+    .sidebar a,
+    .sidebar .dropdown-btn {
         padding: 10px;
         font-size: 14px;
     }
 
-    .header {
-        text-align: center;
+    .main-content {
+        margin-left: 0;
         padding: 15px;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #222;
+        padding: 10px;
     }
 
     .card {
@@ -274,7 +301,6 @@ form .form-group {
         padding: 10px;
     }
 
-    /* Optional: Stack form fields vertically on mobile */
     input[type="text"],
     input[type="email"],
     input[type="password"] {
@@ -290,37 +316,17 @@ form .form-group {
         min-height: 200px;
         font-size: 14px;
     }
-    .sidebar {
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 250px;
-        height: 100%;
-        background: #333;
-        color: white;
-        transition: left 0.3s ease;
-        z-index: 1000;
-    }
-
-    .sidebar.active {
-        left: 0;
-    }
-
-    .main-content {
-        margin-left: 0;
-        padding: 15px;
-    }
 
     .sidebar-toggle {
         display: inline-block;
-    }
-
-    .header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background: #222;
-        padding: 10px;
+        background: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-left: 10px;
     }
 
     .layout-wrapper {
@@ -328,3 +334,4 @@ form .form-group {
         flex-direction: column;
     }
 }
+

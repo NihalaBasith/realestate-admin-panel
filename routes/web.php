@@ -24,9 +24,15 @@ Route::prefix('admin')->group(function () {
     Route::get('pages', [PageController::class, 'getPages'])->name('admin.pages');  
     Route::get('pages/create', [PageController::class, 'createPage'])->name('admin.pages.create');
     Route::post('pages/create', [PageController::class, 'createPageSave'])->name('admin.pages.create');
-    Route::get('pages/{id}/edit', [PageController::class, 'edit'])->name('admin.pages.edit');
-    Route::get('pages/{id}/view', [PageController::class, 'view'])->name('admin.pages.view');
-    Route::delete('pages/{id}/delete', [PageController::class, 'delete'])->name('admin.pages.delete');
+    Route::get('pages/{id}/edit', [PageController::class, 'editPage'])->name('admin.pages.edit');
+    Route::put('pages/{id}/update', [PageController::class, 'updatePage'])->name('admin.pages.update');
+    Route::get('pages/{id}/view', [PageController::class, 'viewPage'])->name('admin.pages.view');
+    Route::delete('pages/{id}/delete', [PageController::class, 'deletePage'])->name('admin.pages.delete');
+
     Route::get('metatag', [PageController::class, 'getMetatag'])->name('admin.metatag');
+    // blog url
+    Route::get('blogs', [PageController::class, 'getBlogs'])->name('admin.blogs'); 
+    Route::get('blogs/create', [PageController::class, 'createBlog'])->name('admin.blog.create');
+    
 });
 
